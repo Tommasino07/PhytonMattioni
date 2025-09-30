@@ -1,6 +1,8 @@
 # save this as app.py
 import mysql.connector
 import pandas as pd
+from flask import Flask
+from flask_cors import CORS
 
 #Connect to mysql
 mydb = mysql.connector.connect(
@@ -9,6 +11,10 @@ mydb = mysql.connector.connect(
   password="password123"
 )
 mycursor = mydb.cursor()
+
+app = Flask(__name__)
+CORS(app)  # <--- abilita CORS per tutte le route
+
 
 #Create the DB (if not already exists)
 mycursor.execute("CREATE DATABASE IF NOT EXISTS CLASH_ROYALE")

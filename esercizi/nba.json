@@ -1,0 +1,25 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "LeBron James",
+      "team": "Los Angeles Lakers",
+      "jersey_number": 23,
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg/330px-LeBron_James_%2851959977144%29_%28cropped2%29.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Stephen Curry",
+      "team": "Golden State Warriors",
+      "jersey_number": 30,
+      "image_url": "https://www.proballers.com/media/cache/torso_player/https---www.proballers.com/ul/player/stephen-curry2-1ef4d0a9-cafe-67b0-be24-cd595db624ec.png"
+    },
+    {
+      "id": 3,
+      "name": "Giannis Antetokounmpo",
+      "team": "Milwaukee Bucks",
+      "jersey_number": 34,
+      "image_url": "https://static.toiimg.com/thumb/imgsize-23456,msid-118424606,width-600,resizemode-4/118424606.jpg"
+    }
+  ]
+}

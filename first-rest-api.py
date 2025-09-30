@@ -1,5 +1,7 @@
 import mysql.connector
 from flask import Flask
+from flask import Flask
+from flask_cors import CORS
 
 #Connect to mysql
 mydb = mysql.connector.connect(
@@ -11,12 +13,13 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 app = Flask(__name__)
+CORS(app)  # <--- abilita CORS per tutte le route
 
-@app.route("/")
+@app.route("/Hello")
 def hello():
     return "Hello, World!"
 
-@app.route("/getAllDataInHtml")
+@app.route("/")
 def getAllData():
     mycursor.execute("SELECT * FROM CLASH_ROYALE.Clash_Unit")
     myresult = mycursor.fetchall()
@@ -26,7 +29,7 @@ def getAllData():
         result.append(x);
     return result
 
-@app.route('/air_transport')
+@app.route('/air_troop')
 def airTransport():
     mycursor.execute("SELECT * FROM CLASH_ROYALE.Clash_Unit WHERE transport = 'Air'")
     myresult = mycursor.fetchall()
