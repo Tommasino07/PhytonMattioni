@@ -1,5 +1,5 @@
 import mysql.connector
-from flask import Flask
+from flask import Flask, jsonify
 from flask import Flask
 from flask_cors import CORS
 
@@ -23,11 +23,17 @@ def hello():
 def getAllData():
     mycursor.execute("SELECT * FROM CLASH_ROYALE.Clash_Unit")
     myresult = mycursor.fetchall()
-    result = [];
-    for x in myresult:
-        print(x);
-        result.append(x);
-    return result
+    
+    # Prendi i nomi delle colonne
+    column_names = [desc[0] for desc in mycursor.description]
+    
+    # Converti i risultati in lista di dizionari
+    result = []
+    for row in myresult:
+        result.append(dict(zip(column_names, row)))
+    
+    # Usa jsonify per restituire un JSON corretto
+    return jsonify(result)
 
 @app.route('/air_troop')
 def airTransport():
