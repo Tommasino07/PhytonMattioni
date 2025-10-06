@@ -43,6 +43,8 @@ mydb.commit()
 #Read data from a csv file
 clash_data = pd.read_csv('./cr-unit-attributes.csv', index_col=False, delimiter = ',')
 clash_data = clash_data.fillna('Null')
+# Aggiungi la colonna ImageUrl con il link all'immagine, sostituendo gli spazi con %20
+clash_data['ImageUrl'] = clash_data['Unit'].apply(lambda name: f"assets/clash_royale_sprites/{name.replace(' ', '%20')}.png")
 print(clash_data.head(20))
 
 #Fill the table

@@ -27,10 +27,13 @@ def getAllData():
     # Prendi i nomi delle colonne
     column_names = [desc[0] for desc in mycursor.description]
     
-    # Converti i risultati in lista di dizionari
+    # Converti i risultati in lista di dizionari e aggiungi image_url
     result = []
     for row in myresult:
-        result.append(dict(zip(column_names, row)))
+        unit_dict = dict(zip(column_names, row))
+        unit_name = unit_dict.get('Unit', '').replace(' ', '%20')
+        unit_dict['image_url'] = f"assets/clash_royale_sprites/{unit_name}.png"
+        result.append(unit_dict)
     
     # Usa jsonify per restituire un JSON corretto
     return jsonify(result)
